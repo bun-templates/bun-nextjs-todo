@@ -37,7 +37,19 @@ Add your connection string to `.env.local`:
 DATABASE_URL="postgresql://username:password@hostname:port/database"
 ```
 
-**Local PostgreSQL (macOS):**
+**Local PostgreSQL (Docker, any OS):**
+```bash
+docker compose up -d
+```
+
+Then add to `.env.local`:
+```bash
+DATABASE_URL="postgres://postgres:postgres@localhost:5432/todo"
+```
+
+Set `POSTGRES_PORT` before `docker compose up` if port 5432 is already taken on your machine.
+
+**Local PostgreSQL (macOS, Homebrew):**
 ```bash
 brew install postgresql
 brew services start postgresql
